@@ -49,6 +49,38 @@
         containers:
         - name: data-processor
           image: data-processor
-
         nodeSelector:
           size=large
+
+# Node Affinity
+
+- Specify which nodes the pod should run on
+- This has more granular options
+
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: myapp-pod
+      spec:
+        containers:
+        - name: data-processor
+          image: data-processor
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: size
+                  operator: In
+                  - Large
+
+## Node Affinity Types
+
+### requiredDuringSchedulingIgnoredDuringExecution
+  - This specifies that a node with the right affinity labels are required for pod scheduling
+  - If a node is not found with the right affinity labels, then the pod will not be scheduled
+      
+### preferredDuringSchedulingIgnoredDuringExecution
+  - This specifies that if a matching node is not found, then the pod will be scheduled in any other available node
+ 
+    
