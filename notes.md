@@ -17,4 +17,16 @@ Taints and Tolerances
 
 - Tolerances can be added to the Pod definition by adding segment tolerations
 
-      apiVersion: 
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: myapp-pod
+      spec:
+        containers:
+        - name: nginx-container
+          image: nginx
+        tolerations:
+        - key: "app"
+          operator: "Equal"
+          value: "blue"
+          effect: "NoSchedule"
