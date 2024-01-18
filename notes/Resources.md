@@ -95,5 +95,19 @@
               min:
                 cpu: 500Mi
               type: Container
-    
-        
+
+## Resource Quota
+
+- Restrict total amount of resources deployed on a K8s cluster
+- Quota created on a namespace level
+
+        apiVersion: v1
+        kind: ResourceQuota
+        metadata:
+          name: my-resource-quota
+        spec:
+          hard:
+            requests.cpu: 4
+            requests.memory: 4Gi
+            limits.cpu: 10
+            limits.memory: 10Gi
