@@ -79,8 +79,12 @@
 ### requiredDuringSchedulingIgnoredDuringExecution
   - This specifies that a node with the right affinity labels are required for pod scheduling
   - If a node is not found with the right affinity labels, then the pod will not be scheduled
+  - Once a pod is executing, any changes to affinity will be ignored
       
 ### preferredDuringSchedulingIgnoredDuringExecution
   - This specifies that if a matching node is not found, then the pod will be scheduled in any other available node
+  - Once a pod is executing, any changes to affinity will be ignored
+
+### Two new Types coming up in a newer version of K8s will have "requiredDuringSchedulingRequiredDuringExecution" and "preferredDuringSchedulingRequiredDuringExecution" - here only the execution portion has changed where in case affinity changes during execution, may evict/terminate pods 
  
-    
+
