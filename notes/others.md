@@ -6,7 +6,7 @@
 - static pods cannot be deleted from a kube api server
 - Static pods can be used to deploy pods on the control plane
 
-# Multiple Scheduler
+# Multiple Schedulers
 - K8s can be extended to have multiple schedulers
 - the default scheduler is named default-scheduler
 
@@ -34,3 +34,6 @@
 - Custom schedulers can be deployed as a Pod in a deinition
 - Add property spec.schedulerName to a pod definition to specify that the pod should be scheduled using that the scheduler
 - If scheduler is not available or not correctly setup, the pod will go to pending state
+
+# Scheduler Priority
+- PriorityClass can be defined which can be used to define the priority of a Pod
