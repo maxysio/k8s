@@ -26,3 +26,7 @@
       kind: KubeSchedulerConfiguration
       profiles:
       - schedulerName: custom-scheduler2
+      leaderElection:
+        leaderElect: true
+        resourceNamespace: kube-system
+        resourceName: lock-object-myscheduler
