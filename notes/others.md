@@ -30,3 +30,7 @@
         leaderElect: true
         resourceNamespace: kube-system
         resourceName: lock-object-myscheduler
+
+- Custom schedulers can be deployed as a Pod in a deinition
+- Add property spec.schedulerName to a pod definition to specify that the pod should be scheduled using that the scheduler
+- If scheduler is not available or not correctly setup, the pod will go to pending state
