@@ -26,3 +26,20 @@
         APP_MODE: prod
 
       
+## Injecting into Pods
+
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: simple-webapp-color
+        labels:
+          name: simple-webapp-color
+      spec:
+        containers:
+        - name: simple-webapp-color
+          image: simple-webapp-color
+          ports:
+          - containerPort: 80
+          envFrom:
+          - configMapRef:
+              name: app-config
