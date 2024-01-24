@@ -17,6 +17,6 @@
       metadata:
         name: app-secret
       data:
-        DB_HOST: mysql
-        DB_USER: root
-        DB_Password: password
+        DB_HOST: <base64 encoded value>
+        DB_USER: <base64 encoded value>
+        DB_Password: <base64 encoded value>
