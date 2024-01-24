@@ -7,3 +7,9 @@
 - Imperative Method
 
       kubectl create secret generic <secret-name> --from-literal=key=value
+
+      kubectl create secret generic <secret-name> --from-file=<filepath>
+
+- Declartive way
+
+      
