@@ -38,3 +38,22 @@
             envFrom:
             - secretRef:
                 name: app-secret
+
+- Secrets can be mounted as Volumes as well
+
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          name: simple-webapp-color
+          labels:
+            name: simple-webapp-color
+        spec:
+          containers:
+          - name: simple-webapp-color
+            image: simple-webapp-color
+            ports:
+            - containerPort: 80
+            volumes:
+            - name: app-secret-volume
+              secret:
+                secretName: app-secret
