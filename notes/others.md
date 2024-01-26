@@ -37,3 +37,7 @@
 
 # Scheduler Priority
 - PriorityClass can be defined which can be used to define the priority of a Pod
+
+# List all clusters: 
+      
+      k config get-clusters
