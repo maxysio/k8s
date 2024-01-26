@@ -14,3 +14,10 @@
       ETCDCTL_API=3 etcdctl --data-dir <data-dir-location> snapshot restore snapshot.db
 
 - where <data-dir-location> is a directory that will be created during the restore process.
+- Which means etcd service should now look for this new location for the data.
+- Change the etcd manifest file at "/etc/kubernetes/manifests/etcd.yaml" and change "host path" for "etcd-data" to the backup folder
+
+      - hostPath:
+          path: /tmp/backup-restart
+          type: DirectoryOrCreate
+        name: etcd-data
