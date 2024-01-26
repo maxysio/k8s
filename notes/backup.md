@@ -8,3 +8,9 @@
       etcdctl member list --endpoints=https://127.0.0.1:2379 
       
       etcdctl snapshot save ~/etcd.backup
+
+# Restore from Backup
+
+      ETCDCTL_API=3 etcdctl --data-dir <data-dir-location> snapshot restore snapshot.db
+
+- where <data-dir-location> is a directory that will be created during the restore process.
