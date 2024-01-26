@@ -23,3 +23,7 @@
         name: etcd-data
 
 - Or add it at "/etc/systemd/system/etcd.service" data-dir option
+- Restart services
+
+        systemctl daemon-reload
+        systemctl restart etcd
