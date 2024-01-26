@@ -21,3 +21,5 @@
           path: /tmp/backup-restart
           type: DirectoryOrCreate
         name: etcd-data
+
+- Or add it at "/etc/systemd/system/etcd.service" data-dir option
