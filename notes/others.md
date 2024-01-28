@@ -41,3 +41,7 @@
 # List all clusters: 
       
       k config get-clusters
+
+# Manifest File location
+
+      /etc/kubernetes/manifests
