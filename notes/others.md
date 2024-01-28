@@ -45,3 +45,7 @@
 # Manifest File location
 
       /etc/kubernetes/manifests
+
+# View Certificate Details in Unix
+
+      openssl x509 -in (path to certificate and certificate filename) -text -noout
