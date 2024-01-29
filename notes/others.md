@@ -49,3 +49,17 @@
 # View Certificate Details in Unix
 
       openssl x509 -in (path to certificate and certificate filename) -text -noout
+
+# CSR Object YAML
+
+      apiVersion: certificates.k8s.io/v1
+      kind: CertificateSigningRequest
+      metadata:
+        name: akshay
+      spec:
+        groups:
+        - system:authenticated
+        request: <Paste the base64 encoded value of the CSR file>
+        signerName: kubernetes.io/kube-apiserver-client
+        usages:
+        - client auth
