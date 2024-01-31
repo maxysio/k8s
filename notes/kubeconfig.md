@@ -36,6 +36,13 @@
           client-certificate: dev.crt
           client-key: dev.key
 
-- View the config file using the command: kubectl config view
-- To change the current context use the command: kubectl config use-context <context-name>
+- View the config file using the command:
+
+        kubectl config view
+- To change the current context use the command:
+
+        kubectl config use-context <context-name>
 - Namespace can be used in a conext to specify which namespace be used when a specific context is used
+- A non default file can be used to specify context information using the option:
+
+        kubectl config --kubeconfig=<file-path>
