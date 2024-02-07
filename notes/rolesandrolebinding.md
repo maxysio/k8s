@@ -3,7 +3,7 @@
     apiVersion: rbac.authorization.k8s.io/v1
     kind: Role
     metadata:
-    name: developer
+      name: developer
     rules:
     - apiGroups: [""]
       resources: ["pods"]
@@ -18,7 +18,7 @@
     apiVersion: rbac.authorization.k8s.io/v1
     kind: RoleBinding
     metadata:
-    name: devuser-developer-binding
+      name: devuser-developer-binding
     subjects:
     - kind: User
       name: dev-user
