@@ -19,6 +19,7 @@
     kind: RoleBinding
     metadata:
       name: devuser-developer-binding
+      namespace: default
     subjects:
     - kind: User
       name: dev-user
