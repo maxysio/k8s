@@ -63,3 +63,24 @@
         signerName: kubernetes.io/kube-apiserver-client
         usages:
         - client auth
+
+# Image Security
+
+- Image name is usually {registry}/{user-account}/{image-name} like docker.io/library/nginx
+
+## Using Private Registry
+
+- Login to private regsitry using docker login command
+
+        docker login <registry-name>
+  
+- In the pod specification, replace the image name with the entire path of the private registry and image name
+- Images are pulled and run by the docker runtime on worker nodes
+- The docker runtime requires credentials to access the private registry
+- Create a secret object of type docker registry
+
+        kubectl create secret docker-registry regcred \
+              --docker-server=                          \
+              --docker-username=                        \
+              --docker-password=                        \
+              --docker-email=
