@@ -84,3 +84,13 @@
               --docker-username=                        \
               --docker-password=                        \
               --docker-email=
+
+- Add an imagePullSecrets section in the pod specs to the new secret
+
+            spec:
+            containers:
+            - image: myprivateregistry.com:5000/nginx:alpine
+              imagePullPolicy: IfNotPresent
+              name: nginx
+            imagePullSecrets:
+            - name: private-reg-cred
