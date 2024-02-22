@@ -1,6 +1,6 @@
 # Network Policies
 - Can be used to define ingress and egress rules for pods for communication
-- The following example allows ingress from pods with name api-pod on port 3306. This applies to pods with labels for role=db and in the namespace with name prod
+- The following example allows ingress from pods with name api-pod on port 3306. This applies to pods with labels for role=db and in the namespace with name prod and also from IP CIDR blocks
 
       apiVersion: networking.k8s.io/v1
       kind: NetworkPolicy
@@ -20,6 +20,8 @@
             namespaceSelector:
               matchLabels:
                 name: prod
+          - ipBlock:
+              cidr: 192.168.5.10/32
           ports:
           - protocol: TCP
             port: 3306
