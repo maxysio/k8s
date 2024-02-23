@@ -59,3 +59,5 @@
           resources:
             requests:
               storage: 500 Mi
+
+- Once a Persistent Volume Claim is deleted, the persistent volume can either be Delete, Retain or Recycle (scrubbed and used for anaother claim) - this is done by setting the value of the property persistentVolumeReclaimPolicy to the respective values
