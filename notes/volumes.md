@@ -23,3 +23,12 @@
             hostpath:
               path: /data
               type: Directory
+
+- The above does not work for solutions with multiple nodes - data consistency becomes an issue
+- In these cases external persistent storage can be used like awsElasticBlockStore
+
+            volumnes:
+            - name: data-volume
+              awsElasticBlockStore:
+                volumeID: <volumeId>
+                fsType: ext4
