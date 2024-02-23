@@ -32,3 +32,17 @@
               awsElasticBlockStore:
                 volumeID: <volumeId>
                 fsType: ext4
+
+# Persistent Volume Definition
+
+        apiVersion: v1
+        kind: PersistentVolume
+        metadata:
+          name: pv-vol1
+        spec:
+          accessModes: 
+            - ReadWriteOnce
+          capacity:
+            storage: 1Gi
+          hostPath:
+            path: /tmp/data
