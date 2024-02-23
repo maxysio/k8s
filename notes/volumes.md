@@ -61,3 +61,21 @@
               storage: 500 Mi
 
 - Once a Persistent Volume Claim is deleted, the persistent volume can either be Delete, Retain or Recycle (scrubbed and used for anaother claim) - this is done by setting the value of the property persistentVolumeReclaimPolicy to the respective values
+
+- Persistent Volume claims can be specified in the Pod definition as shown below
+
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          name: mypod
+        spec:
+          containers:
+            - name: myfrontend
+              image: nginx
+              volumeMounts:
+              - mountPath: "/var/www/html"
+                name: mypd
+          volumes:
+            - name: mypd
+              persistentVolumeClaim:
+                claimName: myclaim
