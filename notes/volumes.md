@@ -1,5 +1,10 @@
 # Volumes and Mounts
 
+- The following is the definition of a Pod that generates a random number and writes it to a file at /opt/number.out
+- A volume is identified data-volume and it is on the host of the container which is the node itself. The directory on the node is /data
+- This is mounted to the containers location /opt
+- So when the program runs it writes to the file number.out which is stored on the nodes directory /data
+
     apiVersion: v1
     kind: Pod
     metadata:
