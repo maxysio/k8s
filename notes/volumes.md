@@ -46,3 +46,16 @@
             storage: 1Gi
           hostPath:
             path: /tmp/data
+
+# Persistent Volume Claims
+
+        apiVersion: v1
+        kind: PersistentVolumeClaim
+        metadata:
+          name: pvc-1
+        spec:
+          accessModes: 
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 500 Mi
