@@ -79,3 +79,31 @@
             - name: mypd
               persistentVolumeClaim:
                 claimName: myclaim
+
+# Storage Class
+
+- A StorageClass provides a way for administrators to describe the classes of storage they offer. Different classes might map to quality-of-service levels, or to backup policies, or to arbitrary policies determined by the cluster administrators. The below defines Google Cloud storage as the Storage class
+
+          apiVersion: storage.k8s.io/v1
+          kind: StorageClass
+          metadata:
+            name: google-storage
+          provisioner: kubernetes.io/gce-pd
+          parameters:
+            type: pd-standard
+            replication-type: none
+
+- In this scenario, a specific persistent volume definition is then not required. Instead the persistent volume claim will use the Storage Class
+
+        apiVersion: v1
+        kind: PersistentVolumeClaim
+        metadata:
+          name: pvc-1
+        spec:
+          accessModes: 
+            - ReadWriteOnce
+          storageClassName: google-storage
+          resources:
+            requests:
+              storage: 500Mi
+          
